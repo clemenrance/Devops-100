@@ -47,5 +47,14 @@ pipeline{
                 }
             }
         }
+        stage("Deploy to Tomcat"){
+
+            steps{
+
+                script{
+                    deploy adapters: [tomcat9(credentialsId: 'tomcat-auth', path: '', url: 'http://3.95.217.122:9000')], contextPath: 'devenv', war: '**/*.war'
+                }
+            }
+        }
     }
 }
