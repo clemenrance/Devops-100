@@ -6,7 +6,7 @@ pipeline{
 
         stage ("Continous Download"){
            steps{
-            git branch: 'main', url: https://github.com/clemenrance/Devops-100.git
+            git branch: 'main', url: 'https://github.com/clemenrance/Devops-100.git'
            }
         }
         stage("Integration Testing"){
