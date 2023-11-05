@@ -47,12 +47,12 @@ pipeline{
                 }
             }
         }
-        stage("Deploy to Tomcat"){
+        stage("Upload artifact to Nexus"){
 
             steps{
 
                 script{
-                    deploy adapters: [tomcat9(credentialsId: 'tomcat-auth', path: '', url: 'http://3.95.217.122:9000')], contextPath: 'devenv', war: '**/*.war'
+                    nexusArtifactUploader artifacts: [[artifactId: 'springboot', classifier: '', file: 'target/Uber.jar', type: 'jar']], credentialsId: 'nexus-auth', groupId: 'com.example', nexusUrl: 'Devops-100', nexusVersion: 'nexus3', protocol: 'http', repository: 'Devops-100', version: '1.0.0'
                 }
             }
         }
