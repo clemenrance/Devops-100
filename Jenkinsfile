@@ -9,10 +9,16 @@ pipeline{
             git branch: 'main', url: 'https://github.com/clemenrance/Devops-100.git'
            }
         }
-        stage("Integration Testing"){
+        stage("Unit Test"){
             
             steps{
                 sh 'mvn test'
+            }
+        }
+        stage("Integration Testing"){
+
+            steps{
+                sh'mvn verify -DskipUnitTests'
             }
         }
     }
