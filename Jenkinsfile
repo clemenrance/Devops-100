@@ -27,9 +27,6 @@ pipeline{
                 sh'mvn clean install'
             }
         }
-        stage("Static Test Analysis"){
-
-        }
         stage("STATIC TEST ANALYSIS"){
 
             steps{
